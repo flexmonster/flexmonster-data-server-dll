@@ -27,7 +27,10 @@ namespace DemoDataServerCore
             services.AddFlexmonsterApi();
             //custom parser must be added as transient
             services.AddTransient<IParser, CustomParser>();
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+            }); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
