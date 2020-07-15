@@ -36,5 +36,6 @@ var pivot = new Flexmonster({
 
 
 $("#country").on("change", function () {
+	pivot.clear();
 	pivot.setReport(report);
 });

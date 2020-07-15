@@ -13,10 +13,10 @@ namespace DemoDataServerCore.Controllers
     {
         private static Dictionary<string, List<object>> _userPermissions = new Dictionary<string, List<object>>()
         {
-            {"AAAA", null },
-            {"BBBB",  new List<object>(){ "Germany","France" } },
-            {"CCCC",  new List<object>(){ "USA","Canada" } },
-            {"DDDD", new List<object>(){ "Australia" } },
+            {"AdminToken", null },
+            {"EuropeToken",  new List<object>(){ "Germany","France" } },
+            {"AmericaToken",  new List<object>(){ "USA","Canada" } },
+            {"AustraliaToken", new List<object>(){ "Australia" } },
         };
 
         private readonly IApiService _apiService;
