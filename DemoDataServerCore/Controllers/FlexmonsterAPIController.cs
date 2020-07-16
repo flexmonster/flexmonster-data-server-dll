@@ -13,9 +13,20 @@ namespace DemoDataServerCore.Controllers
     {
         private static Dictionary<string, List<object>> _userPermissions = new Dictionary<string, List<object>>()
         {
+            /* a user with the "AdminToken" token will see
+            the report on all the countries */
             {"AdminToken", null },
+
+            /* a user with the "EuropeToken" token will see
+            details about Germany and France */
             {"EuropeToken",  new List<object>(){ "Germany","France" } },
+
+            /* a user with the "AmericaToken" token will see
+            highlights about USA and Canada */
             {"AmericaToken",  new List<object>(){ "USA","Canada" } },
+
+            /* a user with the "AustraliaToken" token will see
+            info about Australia */
             {"AustraliaToken", new List<object>(){ "Australia" } },
         };
 
@@ -53,11 +64,15 @@ namespace DemoDataServerCore.Controllers
         //server side filter to disable some data for user
         private ServerFilter GetServerFilter()
         {
+            // get the user token from the request headers
             HttpContext.Request.Headers.TryGetValue("UserToken", out StringValues userRole);
             if (userRole.Count == 1)
             {
+                // create a server filter
                 ServerFilter serverFilter = new ServerFilter();
+                // specify a field to filter
                 serverFilter.Field = new Field() { UniqueName = "Country", Type = ColumnType.stringType };
+                // include the members that correspond to the user token
                 serverFilter.Include = _userPermissions[userRole[0]];
                 return serverFilter;
             }
