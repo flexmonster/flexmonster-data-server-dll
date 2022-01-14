@@ -71,7 +71,7 @@ namespace DemoDataServerCore.Controllers
                 // create a server filter
                 ServerFilter serverFilter = new ServerFilter();
                 // specify a field to filter
-                serverFilter.Field = new Field() { UniqueName = "Country", Type = ColumnType.stringType };
+                serverFilter.Field = new Field() { UniqueName = "Country", Type = ColumnType.StringType };
                 // include the members that correspond to the user token
                 serverFilter.Include = _userPermissions[userRole[0]];
                 return serverFilter;
