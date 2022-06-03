@@ -1,5 +1,8 @@
-﻿@{
+﻿@using DemoDataServerCore.Controllers;
+@{
+
     ViewData["Title"] = "Home Page";
+
 }
 <script src="https://cdn.flexmonster.com/flexmonster.js"></script>
 
@@ -17,6 +20,7 @@
         <option value="AmericaToken">North America manager</option>
         <option value="AustraliaToken">Australia manager</option>
     </select>
+    <button id="reloadButton" class="btn btn-outline-info"> Reload in runtime</button>
 </div>
 
 <div id="pivotContainer"> </div>

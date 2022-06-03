@@ -39,3 +39,13 @@ $("#country").on("change", function () {
 	pivot.clear();
 	pivot.setReport(report);
 });
+
+$("#reloadButton").on("click", function () {
+	$.ajax({
+		url: "http://localhost:51718/api/refresh?index=" + report.dataSource.index,
+		type: "get",
+		success: function () {
+			pivot.updateData(report.dataSource);
+		}
+	});
+});

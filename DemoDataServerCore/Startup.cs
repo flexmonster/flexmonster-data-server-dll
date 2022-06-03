@@ -1,10 +1,11 @@
+﻿using DemoDataServerCore.Controllers;
 using Flexmonster.DataServer.Core;
-using Flexmonster.DataServer.Core.Parsers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 
 namespace DemoDataServerCore
 {
@@ -20,17 +21,34 @@ namespace DemoDataServerCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigureFlexmonsterOptions(Configuration);
+            //Configure JsonIndexOptions
+            services.Configure<DatasourceOptions>((options) =>
+            {
+                options.Indexes = new Dictionary<string, IndexOptions>();
+                //public DatabaseIndexOptions(string databaseType, string connectionString, string query);
+
+                options.Indexes.Add("custom-index", new JsonIndexOptions("data.json"));
+            });
+
+   
+
+            
             services.AddControllersWithViews();
             //configure options from appsettings.json
-            services.ConfigureFlexmonsterOptions(Configuration);
             //add 
-            services.AddFlexmonsterApi();
             //custom parser must be added as transient
-            services.AddTransient<IParser, CustomParser>();
+           // services.AddTransient<IParser, CustomParser>();
+            services.AddScoped<JsonIndexService>();
+            services.AddScoped<ReloadService>();
+
+            services.AddFlexmonsterApi();
+
             services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.IgnoreNullValues = true;
-            }); ;
+            }); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

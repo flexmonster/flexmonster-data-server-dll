@@ -5,12 +5,14 @@ using Microsoft.Extensions.Primitives;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+    
 namespace DemoDataServerCore.Controllers
 {
     [Route("api")]
     [ApiController]
     public class FlexmonsterAPIController : ControllerBase
     {
+        private readonly ReloadService _reloadService;
         private static Dictionary<string, List<object>> _userPermissions = new Dictionary<string, List<object>>()
         {
             /* a user with the "AdminToken" token will see
@@ -32,10 +34,22 @@ namespace DemoDataServerCore.Controllers
 
         private readonly IApiService _apiService;
 
-        public FlexmonsterAPIController(IApiService apiService)
+
+        public FlexmonsterAPIController(IApiService apiService, ReloadService reloadService)
         {
             _apiService = apiService;
+            _reloadService = reloadService;
         }
+
+
+        [Route("refresh")]
+        [HttpGet]
+        public async Task<IActionResult> RefreshIndex([FromQuery]string index)
+        {
+            await _reloadService.Reload(index);
+            return new JsonResult("");
+        }
+
 
         [Route("fields")]
         [HttpPost]

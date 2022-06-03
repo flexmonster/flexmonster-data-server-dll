@@ -15,6 +15,7 @@ namespace DemoDataServerCore
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                   
                 });
     }
 }
