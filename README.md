@@ -30,7 +30,7 @@ git clone https://github.com/flexmonster/flexmonster-data-server-dll && cd flexm
   
 2. Run the sample server from the console:
 
-```bash
+```
 cd DemoDataServerCore
 dotnet restore
 dotnet run
