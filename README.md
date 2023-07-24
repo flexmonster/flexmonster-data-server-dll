@@ -6,7 +6,7 @@ Website: [www.flexmonster.com](https://www.flexmonster.com?r=github)
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository contains the source code for a custom data server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-flexmonster-data-server?r=github) as a DLL.
+This repository contains the source code for a custom data server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-data-server?r=github) as a DLL.
 
 Flexmonster Data Server is a special server-side tool that is responsible for fetching data from a data source, processing, and aggregating it. Then the data is passed to Flexmonster Pivot in a ready-to-show format. The Data Server significantly reduces the time of data loading and allows analyzing large datasets.
 
