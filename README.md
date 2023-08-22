@@ -6,9 +6,9 @@ Website: [www.flexmonster.com](https://www.flexmonster.com?r=github)
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository contains the source code for a custom data server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-data-server?r=github) as a DLL.
+This repository contains the source code for a .NET Core application with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-data-server?r=github) as a DLL.
 
-Flexmonster Data Server is a special server-side tool that is responsible for fetching data from a data source, processing, and aggregating it. Then the data is passed to Flexmonster Pivot in a ready-to-show format. The Data Server significantly reduces the time of data loading and allows analyzing large datasets.
+Flexmonster Data Server is a server-side tool that is responsible for fetching data from a data source, processing, and aggregating it. Then the data is passed to Flexmonster Pivot in a ready-to-show format. The Data Server significantly reduces the time of data loading and allows analyzing large datasets.
 
 Table of contents:
 
@@ -22,10 +22,11 @@ Table of contents:
 
 ## Installation
 
-1. Download a `.zip` archive with the sample project or clone it from GitHub with the following command:
+1. Download a `.zip` archive with the sample project or clone it from GitHub with the following commands:
 
 ```bash
-git clone https://github.com/flexmonster/flexmonster-data-server-dll && cd flexmonster-data-server-dll
+git clone https://github.com/flexmonster/flexmonster-data-server-dll
+cd flexmonster-data-server-dll
 ```
   
 2. Run the sample server from the console:
