@@ -6,9 +6,9 @@ Website: www.flexmonster.com
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository holds the source code for a custom server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-flexmonster-data-server/) as a DLL.
+This repository contains the source code for a .NET Core application with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-flexmonster-data-server/) as a DLL.
 
-**Note:** The project in this branch demonstrates how to reload indexes manually. See the implementation of the manual index reloading in the ReloadService.cs file.
+**Note:** The project in this branch demonstrates how to reload indexes manually. See the implementation of the manual index reloading in the [ReloadService.cs](https://github.com/flexmonster/flexmonster-data-server-dll/blob/feature-manual-index-refresh/DemoDataServerCore/Controllers/ReloadService.cs) file.
 
 The table of contents:
 
