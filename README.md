@@ -6,15 +6,15 @@ Website: www.flexmonster.com
 
 Flexmonster Pivot is a powerful JavaScript tool for interactive web reporting. It allows you to visualize and analyze data from JSON, CSV, SQL, NoSQL, Elasticsearch, and OLAP data sources quickly and conveniently. Flexmonster is designed to integrate seamlessly with any client-side framework and can be easily embedded into your application.
 
-This repository holds the source code for a custom data server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-flexmonster-data-server/) as a DLL.
+This repository holds the source code for a custom server with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-flexmonster-data-server/) as a DLL.
 
-Flexmonster Data Server is a special server-side tool that is responsible for fetching data from a data source, processing, and aggregating it. Then the data is passed to Flexmonster Pivot in a ready-to-show format. The Data Server significantly reduces the time of data loading and allows analyzing large datasets.
+**Note:** The project in this branch demonstrates how to reload indexes manually. See the implementation of the manual index reloading in the ReloadService.cs file.
 
 The table of contents:
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Related Flexmonster docs](#related-flexmonster-docs)
 
 ## Prerequisites
 
@@ -39,6 +39,7 @@ dotnet run
 
 To see the result, open `http://localhost:5000/` in your browser.
 
-## Usage
+## Related Flexmonster docs
 
-For details on usage, refer to the [Getting started with the Data Server as a DLL](https://www.flexmonster.com/doc/getting-started-with-data-server-dll/) guide.
+- [Getting started with the Data Server as a DLL](https://www.flexmonster.com/doc/getting-started-with-data-server-dll/) — learn how to use the Data Server as a DLL.
+- [Manually reloading indexes in the Data Server as a DLL](https://www.flexmonster.com/doc/manually-reloading-indexes/) — see details on how to reload indexes manually in the Data Server as a DLL.
