@@ -34,7 +34,7 @@ namespace DemoDataServerCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IPrepopulatingService prepopulatingService)
         {
             if (env.IsDevelopment())
             {
@@ -52,6 +52,7 @@ namespace DemoDataServerCore
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
             });
+            prepopulatingService.Prepopulate();
         }
     }
 }
