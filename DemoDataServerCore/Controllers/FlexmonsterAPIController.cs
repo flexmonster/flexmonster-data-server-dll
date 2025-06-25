@@ -2,6 +2,7 @@
 using Flexmonster.DataServer.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -32,31 +33,37 @@ namespace DemoDataServerCore.Controllers
 
         private readonly IApiService _apiService;
 
-        public FlexmonsterAPIController(IApiService apiService)
+        private readonly IndexCreateService _createService;
+
+        public FlexmonsterAPIController(IApiService apiService, IndexCreateService createService)
         {
             _apiService = apiService;
+            _createService = createService;
         }
 
         [Route("fields")]
         [HttpPost]
-        public async Task<IActionResult> PostFields([FromBody]FieldsRequest request)
+        public async Task<IActionResult> PostFields([FromBody] FieldsRequest request)
         {
+            await _createService.CreateIndexIfNotExists(request.Index);
             var response = await _apiService.GetFieldsAsync(request);
             return new JsonResult(response);
         }
 
         [Route("members")]
         [HttpPost]
-        public async Task<IActionResult> PostMembers([FromBody]MembersRequest request)
+        public async Task<IActionResult> PostMembers([FromBody] MembersRequest request)
         {
+            await _createService.CreateIndexIfNotExists(request.Index);
             var response = await _apiService.GetMembersAsync(request, GetServerFilter());
             return new JsonResult(response);
         }
 
         [Route("select")]
         [HttpPost]
-        public async Task<IActionResult> PostSelect([FromBody]SelectRequest request)
+        public async Task<IActionResult> PostSelect([FromBody] SelectRequest request)
         {
+            await _createService.CreateIndexIfNotExists(request.Index);
             var response = await _apiService.GetAggregatedDataAsync(request, GetServerFilter());
             return new JsonResult(response);
         }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using DemoDataServerCore.Controllers;
 using Flexmonster.DataServer.Core;
 using Flexmonster.DataServer.Core.Parsers;
 using Microsoft.AspNetCore.Builder;
@@ -23,14 +25,28 @@ namespace DemoDataServerCore
             services.AddControllersWithViews();
             //configure options from appsettings.json
             services.ConfigureFlexmonsterOptions(Configuration);
+
             //add 
             services.AddFlexmonsterApi();
+            services.AddScoped<IndexCreateService>();
+
             //custom parser must be added as transient
-            services.AddTransient<IParser, CustomParser>();
+            services.AddTransient<IParser, CSVURLParser>();
+            // Create a CSV URL index via startup config
+            // services.Configure<DatasourceOptions>((options) =>
+            // {
+            //     options.Indexes = new Dictionary<string, IndexOptions>
+            //     {
+            //         {
+            //             "custom_user_index",
+            //             new CSVURlIndexOptions("https://cdn.flexmonster.com/data/data.csv")
+            //         }
+            //     };
+            // });
             services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.IgnoreNullValues = true;
-            }); ;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

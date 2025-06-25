@@ -2,7 +2,7 @@
 	"dataSource":
 	{
 		"type": "api",
-		"index": "custom-index",
+		"index": "custom_user_index",
 		"url": "/api"
 	},
 	"slice": {
