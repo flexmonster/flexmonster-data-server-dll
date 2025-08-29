@@ -28,16 +28,13 @@ Table of contents:
 1. Download a `.zip` archive with the sample project or clone it from GitHub with the following commands:
 
 ```bash
-git clone https://github.com/flexmonster/flexmonster-data-server-dll
-cd flexmonster-data-server-dll
+git clone https://github.com/flexmonster/flexmonster-data-server-dll && cd flexmonster-data-server-dll
 ```
   
 2. Run the sample server from the console:
 
 ```
-cd DemoDataServerCore
-dotnet restore
-dotnet run
+cd DemoDataServerCore && dotnet restore && dotnet run
 ``` 
 
 To see the result, open `http://localhost:5000/` in your browser.
