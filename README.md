@@ -6,7 +6,7 @@ Website: [www.flexmonster.com](https://www.flexmonster.com?r=github)
 
 Flexmonster Pivot Table & Charts is a powerful and fully customizable JavaScript component for web reporting. It is packed with all core features for data analysis and can easily become a part of your data visualization project. The tool supports popular frameworks like React, Vue, Angular, Blazor, and [more](https://www.flexmonster.com/doc/available-tutorials-integration?r=github). Also, Flexmonster connects to [any data source](https://www.flexmonster.com/doc/supported-data-sources?r=github), including SQL and NoSQL databases, JSON and CSV files, OLAP cubes, and Elasticsearch.
 
-This repository contains a sample .NET Core project with [Flexmonster Data Server](https://www.flexmonster.com/doc/getting-started-with-data-server?r=github) as a DLL.
+This repository contains a sample .NET Core project with [Flexmonster Data Server as a DLL](https://www.flexmonster.com/doc/getting-started-with-data-server-dll/?r=github).
 
 [Flexmonster Data Server](https://www.flexmonster.com/doc/intro-to-flexmonster-data-server?r=github) is an installable, server-side application. The idea of the Data Server is to reduce the time of data loading and allow analyzing large datasets by delegating all calculations to the server. The Data Server fetches your data from a data source, aggregates it, and then sends it to Flexmonster Pivot.
 
